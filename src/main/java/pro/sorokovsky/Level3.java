@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Level3 {
-    static void main() {
+    public static void main(String[] args) {
         List<BaseEntity> entities = new ArrayList<>();
         try (Scanner scanner = new Scanner(System.in)) {
             try {
