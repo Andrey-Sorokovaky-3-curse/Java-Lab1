@@ -2,18 +2,18 @@ package pro.sorokovsky;
 
 import pro.sorokovsky.validation.ValidationException;
 
-import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Введіть максимальний обʼєм баку(літри): ");
-            long maxFull = scanner.nextLong();
-            System.out.print("Введіть назву потягу: ");
-            String name = scanner.next();
-            System.out.print("Введіть марку експресу: ");
-            String mark = scanner.next();
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            long maxFull = BuilderOptions.geyMaxFull();
+            String name = BuilderOptions.getName();
+            System.out.println("Введіть марку експресу: ");
+            String mark = scanner.nextLine();
             Transport car = new Car(maxFull);
             Transport train = new Train(name);
             Transport express = new Express(name, mark);
@@ -27,10 +27,8 @@ public class Main {
             System.out.println("Car a / b = " + car.divide(a, b));
             System.out.println("Train a / b = " + train.divide(a, b));
             System.out.println("Express a / b = " + express.divide(a, b));
-        } catch (ValidationException exception) {
+        } catch (ValidationException | NumberFormatException exception) {
             System.out.println(exception.getMessage());
-        } catch (InputMismatchException _) {
-            System.out.println("Не коректне значення");
         }
     }
 }

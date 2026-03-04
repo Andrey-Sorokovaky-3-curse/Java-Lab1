@@ -1,5 +1,6 @@
 package pro.sorokovsky;
 
+import pro.sorokovsky.validation.TransportTypeException;
 import pro.sorokovsky.validation.ValidationException;
 
 public class Train extends Transport {
@@ -13,7 +14,10 @@ public class Train extends Transport {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws ValidationException  {
+        if (name == null || name.isEmpty()) {
+            throw new ValidationException("Назва має бути");
+        }
         this.name = name;
     }
 
