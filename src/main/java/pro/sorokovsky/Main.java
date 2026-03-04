@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Введіть максимальний обʼєм баку(літри).");
+            System.out.print("Введіть максимальний обʼєм баку(літри): ");
             long maxFull = scanner.nextLong();
-            System.out.print("Введіть назву потягу.");
+            System.out.print("Введіть назву потягу: ");
             String name = scanner.next();
-            System.out.print("Введіть марку експресу.");
+            System.out.print("Введіть марку експресу: ");
             String mark = scanner.next();
             Transport car = new Car(maxFull);
             Transport train = new Train(name);
@@ -20,9 +20,9 @@ public class Main {
             car.printInfo();
             train.printInfo();
             express.printInfo();
-            System.out.println("Введіть число a.");
+            System.out.print("Введіть число a: ");
             long a = scanner.nextLong();
-            System.out.println("Введіть число b.");
+            System.out.print("Введіть число b: ");
             long b = scanner.nextLong();
             System.out.println("Car a / b = " + car.divide(a, b));
             System.out.println("Train a / b = " + train.divide(a, b));
