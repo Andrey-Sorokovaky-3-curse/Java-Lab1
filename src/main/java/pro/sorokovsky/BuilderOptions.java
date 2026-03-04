@@ -20,7 +20,7 @@ public class BuilderOptions {
                 return maxFull;
             } catch (ValidationException exception) {
                 System.out.println(exception.getMessage());
-                System.out.println("Спробуйье ще");
+                System.out.println("Спробуйте ще");
                 ok = false;
             } catch (NumberFormatException exception) {
                 System.out.println("Некоректні дання, спробуйте ще.");
