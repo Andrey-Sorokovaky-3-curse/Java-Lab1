@@ -22,7 +22,7 @@ public abstract class Transport {
         this.type = type;
     }
 
-    public double divide(double a, double b) throws DivideByZeroException {
+    public final double divide(double a, double b) throws DivideByZeroException {
         if (b == 0) throw new DivideByZeroException();
         return a / b;
     }
