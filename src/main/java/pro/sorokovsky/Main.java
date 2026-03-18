@@ -20,14 +20,13 @@ public class Main {
             car.printInfo();
             train.printInfo();
             express.printInfo();
-            System.out.print("Введіть число a: ");
-            long a = scanner.nextLong();
-            System.out.print("Введіть число b: ");
-            long b = scanner.nextLong();
+            long a = BuilderOptions.getLong("число a");
+            long b = BuilderOptions.getLong("число b");
             System.out.println("Car a / b = " + car.divide(a, b));
             System.out.println("Train a / b = " + train.divide(a, b));
             System.out.println("Express a / b = " + express.divide(a, b));
-        } catch (ValidationException | NumberFormatException exception) {
+        }
+        catch (ValidationException | NumberFormatException exception) {
             System.out.println(exception.getMessage());
         }
     }

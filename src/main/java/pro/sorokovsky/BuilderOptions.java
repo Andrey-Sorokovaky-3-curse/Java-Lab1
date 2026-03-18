@@ -3,6 +3,7 @@ package pro.sorokovsky;
 import pro.sorokovsky.validation.NotPositiveNumberException;
 import pro.sorokovsky.validation.ValidationException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BuilderOptions {
@@ -48,5 +49,20 @@ public class BuilderOptions {
             }
         }
         return "";
+    }
+
+    public static Long getLong(String name) {
+        ok = false;
+        while (!ok) {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                System.out.printf("Введіть %s: ", name);
+                return scanner.nextLong();
+            } catch (InputMismatchException exception) {
+                System.out.println("Ви ввели не число, спробуйте ще.");
+                ok = false;
+            }
+        }
+        return 0L;
     }
 }
